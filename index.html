@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中國省份介紹測驗</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>中國省份介紹測驗</h1>
+    <p>點擊地圖中的任一省份，查看詳細背景介紹。</p>
+    <div class="top-actions">
+      <button id="dashboard-toggle-btn" class="top-action-btn" type="button">統計面板</button>
+      <button id="collection-toggle-btn" class="top-action-btn" type="button">卡片集</button>
+    </div>
+  </header>
+
+  <div class="map-container" id="map-container">
+    <img src="images/china_map.jpeg" alt="中國地圖" class="map-bg" />
+
+    <svg id="map-svg" class="map-overlay" viewBox="0 0 2048 1536">
+        
+        <polygon id="xinjiang" class="province"
+        points="62,472 43,534 71,568 53,607 94,669 139,689 160,751 210,717 256,719 327,721 377,730 418,721 462,714 505,705 533,719 592,728 601,696 610,680 594,659 590,630 633,623 697,621 713,611 722,566 759,529 800,525 809,488 798,445 747,406 665,387 667,296 590,230 526,243 505,289 432,273 400,326 325,321 293,449 222,463">
+        <title>xinjiang</title>
+        </polygon>
+
+        <polygon id="tibet" class="province"
+        points="213,718 201,750 167,757 167,789 133,798 128,866 142,880 162,887 187,923 231,928 283,974 313,978 357,1022 359,1038 405,1045 411,1058 459,1058 473,1079 505,1072 537,1067 594,1079 599,1115 679,1120 718,1104 773,1104 827,1109 855,1097 864,1061 882,1056 875,965 834,921 800,946 761,942 738,917 677,914 638,903 574,885 544,862 539,811 555,793 558,761 544,747 565,738 517,727 480,715 395,734 343,741 320,725 265,729 245,715">
+        <title>tibet</title>
+        </polygon>
+
+        <polygon id="qinghai" class="province"
+        points="597,632 594,655 622,673 603,696 608,726 574,733 558,749 576,769 553,801 562,845 569,874 606,879 640,893 667,897 688,913 738,909 768,936 795,941 823,920 827,899 843,897 848,865 880,865 898,895 928,895 976,911 992,888 971,861 981,845 1001,822 1017,806 1033,785 1026,762 1022,733 1003,712 983,712 942,678 912,664 871,648 834,657 795,657 784,634 722,614 683,627 638,630">
+        <title>qinghai</title>
+        </polygon>
+
+        <polygon id="gansu" class="province"
+        points="734,611 731,563 763,534 805,529 805,502 846,506 848,531 846,554 859,577 859,591 914,577 942,573 942,589 926,611 949,625 962,643 983,657 1006,666 1022,653 1056,648 1079,648 1079,673 1065,696 1074,710 1097,719 1104,742 1104,742 1120,755 1129,781 1145,799 1166,806 1177,792 1182,776 1170,765 1179,758 1198,751 1214,744 1232,758 1250,762 1250,781 1241,801 1227,806 1209,813 1189,815 1179,829 1177,840 1175,856 1159,879 1154,899 1118,909 1097,886 1067,881 1061,861 1029,854 1010,863 992,854 1006,829 1017,810 1029,792 1035,767 1029,739 1010,717 987,707 969,689 937,673 937,662 896,648 846,643 825,653 793,643 786,625">
+        <title>gansu</title>
+        </polygon>
+
+        <polygon id="sichuan" class="province"
+        points="855,865 855,899 839,906 857,934 885,959 896,1089 917,1078 930,1114 949,1105 985,1162 1042,1155 1038,1123 1056,1123 1054,1091 1079,1075 1097,1080 1134,1103 1170,1110 1163,1094 1154,1075 1186,1071 1186,1071 1227,1053 1262,1057 1273,1080 1287,1078 1285,1046 1259,1018 1264,998 1312,977 1312,954 1298,941 1255,927 1205,915 1159,909 1115,911 1090,902 1090,883 1065,874 1049,865 1019,865 1017,883 1003,897 981,913 928,913 894,902 882,872">
+        <title>sichuan</title>
+        </polygon>
+
+        <polygon id="yunnan" class="province"
+        points="873,1059 862,1101 878,1144 855,1201 832,1201 816,1263 862,1272 864,1302 878,1306 875,1341 898,1343 905,1366 978,1373 981,1338 987,1325 1115,1327 1147,1311 1163,1293 1161,1274 1129,1270 1095,1256 1099,1229 1093,1208 1102,1178 1102,1160 1083,1162 1074,1144 1081,1128 1134,1126 1136,1105 1113,1103 1093,1089 1093,1075 1081,1073 1065,1094 1058,1117 1047,1126 1042,1155 1010,1167 983,1169 965,1128 949,1114 930,1119 917,1087 903,1089 887,1069">
+        <title>yunnan</title>
+        </polygon>
+
+        <polygon id="neimenggu" class="province"
+        points="854,508 854,541 843,557 866,592 945,571 945,588 927,613 927,613 957,629 1005,666 1018,648 1046,652 1083,647 1080,677 1068,705 1097,720 1137,709 1159,647 1176,648 1179,671 1197,696 1243,702 1277,658 1321,623 1343,625 1369,598 1412,584 1422,543 1444,518 1458,532 1507,512 1545,489 1561,499 1568,525 1597,525 1602,494 1615,484 1630,499 1643,478 1704,461 1726,436 1704,401 1672,410 1656,347 1681,341 1684,312 1665,288 1674,265 1690,238 1701,240 1712,206 1726,138 1729,117 1710,107 1681,116 1653,123 1634,123 1630,91 1596,86 1596,54 1556,66 1552,99 1565,116 1551,135 1539,187 1498,221 1470,222 1470,262 1457,262 1457,304 1507,306 1537,297 1577,316 1540,329 1510,339 1489,358 1488,376 1466,391 1438,391 1406,417 1381,423 1340,415 1331,433 1333,461 1331,486 1314,487 1303,512 1270,516 1182,528 1125,553 1072,541 1027,538 1005,519">
+        <title>inner mongolia</title>
+        </polygon>
+
+        <polygon id="heilongjiang" class="province"
+        points="1599,44 1590,82 1625,85 1625,120 1659,121 1709,102 1733,113 1723,193 1714,240 1701,234 1672,271 1685,304 1719,319 1729,339 1773,339 1823,342 1846,366 1858,355 1893,382 1915,366 1934,360 1953,372 1965,358 1951,342 1957,331 2001,331 2017,231 2032,222 2029,170 2007,180 1970,206 1915,214 1899,183 1865,173 1808,171 1792,148 1777,139 1777,116 1709,42 1638,38">
+        <title>heilongjiang</title>
+        </polygon>
+
+        <polygon id="guangxi" class="province"
+        points="1211,1205 1194,1224 1167,1224 1154,1241 1125,1238 1102,1245 1123,1258 1169,1271 1169,1295 1159,1314 1194,1331 1210,1371 1325,1371 1371,1308 1385,1305 1391,1279 1409,1262 1415,1227 1396,1216 1379,1223 1377,1204 1381,1170 1358,1163 1343,1176 1312,1178 1302,1194 1268,1205 1262,1217 1233,1220">
+        <title>guangxi</title>
+        </polygon>
+
+        <polygon id="guizhou" class="province"
+        points="1090,1129 1131,1128 1148,1115 1167,1115 1159,1080 1188,1078 1224,1061 1258,1061 1261,1080 1293,1087 1299,1112 1281,1129 1300,1135 1300,1176 1271,1198 1251,1213 1221,1208 1198,1220 1166,1220 1150,1233 1128,1233 1107,1248 1102,1211 1103,1186 1110,1163 1088,1157">
+        <title>guizhou</title>
+        </polygon>
+
+        <polygon id="hainan" class="province"
+        points="1347,1428 1317,1429 1298,1448 1290,1482 1303,1499 1353,1504 1369,1485 1374,1467 1377,1431">
+        <title>hainan</title>
+        </polygon>
+
+        <polygon id="guangdong" class="province"
+        points="1416,1224 1416,1258 1394,1302 1362,1318 1362,1343 1341,1362 1339,1400 1359,1410 1360,1391 1365,1381 1387,1378 1422,1363 1470,1355 1479,1344 1518,1321 1580,1308 1600,1299 1619,1271 1618,1239 1593,1211 1574,1221 1535,1217 1513,1229 1513,1205 1523,1198 1469,1194 1463,1220 1447,1216 1431,1210">
+        <title>guangdong</title>
+        </polygon>
+
+        <polygon id="hunan" class="province"
+        points="1341,1011 1341,1033 1306,1027 1292,1043 1292,1077 1298,1107 1290,1128 1308,1131 1303,1153 1306,1175 1325,1169 1347,1170 1355,1163 1375,1162 1381,1181 1379,1198 1381,1219 1396,1227 1416,1226 1418,1216 1439,1214 1456,1216 1456,1194 1494,1191 1498,1144 1489,1144 1475,1107 1480,1078 1482,1049 1460,1027 1439,1027 1400,1028 1371,1017">
+        <title>hunan</title>
+        </polygon>
+
+        <polygon id="hubei" class="province"
+        points="1341,884 1292,882 1311,906 1298,907 1296,932 1317,960 1312,977 1270,990 1262,1014 1281,1036 1299,1025 1334,1031 1339,1011 1365,1014 1423,1018 1456,1020 1483,1036 1517,1023 1517,1004 1548,1004 1549,979 1545,954 1524,939 1488,938 1447,926 1438,911 1394,908 1368,900">
+        <title>hubei</title>
+        </polygon>
+
+        <polygon id="heinan" class="province"
+        points="1432,756 1429,788 1391,803 1365,819 1319,824 1319,853 1372,900 1437,908 1479,932 1513,935 1535,925 1535,894 1514,891 1498,870 1514,843 1533,835 1554,829 1532,812 1491,809 1489,777 1498,750 1482,758">
+        <title>heinan</title>
+        </polygon>
+
+        <polygon id="shaanxi" class="province"
+        points="1325,630 1277,657 1251,701 1207,708 1202,736 1252,759 1246,794 1251,809 1213,822 1182,815 1173,835 1175,869 1175,869 1157,900 1195,908 1230,923 1265,922 1290,936 1287,908 1302,903 1286,889 1339,879 1319,854 1308,812 1319,786 1311,762 1314,724 1314,688 1312,669 1328,664">
+        <title>shaanxi</title>
+        </polygon>
+
+        <polygon id="taiwan" class="province"
+        points="1796,1163 1773,1198 1763,1204 1757,1262 1783,1293 1802,1295 1818,1238 1818,1175">
+        <title>taiwan</title>
+        </polygon>
+
+        <polygon id="fujian" class="province"
+        points="1659,1049 1678,1052 1678,1078 1713,1081 1747,1088 1728,1122 1726,1175 1706,1198 1691,1223 1665,1223 1654,1248 1638,1260 1624,1236 1599,1205 1586,1205 1578,1172 1587,1154 1602,1140 1596,1113 1612,1104 1615,1074 1644,1068">
+        <title>fujian</title>
+        </polygon>
+
+        <polygon id="zhejiang" class="province"
+        points="1682,932 1684,958 1674,971 1659,973 1659,998 1643,1015 1657,1046 1676,1052 1685,1077 1713,1074 1753,1080 1779,1052 1783,980 1758,967 1733,965 1764,927 1731,941">
+        <title>zhejiang</title>
+        </polygon>
+        
+        <polygon id="jiangxi" class="province"
+        points="1524,1024 1489,1027 1480,1085 1489,1135 1501,1182 1530,1189 1516,1220 1551,1214 1575,1220 1575,1170 1587,1150 1595,1107 1614,1069 1644,1062 1653,1040 1646,1011 1599,1006 1571,1004 1540,1011">
+        <title>jiangxi</title>
+        </polygon>
+
+        <polygon id="anhui" class="province"
+        points="1559,828 1539,838 1517,835 1510,865 1514,889 1532,888 1535,914 1516,932 1555,948 1562,993 1644,996 1674,965 1678,939 1654,939 1640,922 1637,901 1652,876 1631,876 1614,863 1609,843 1586,834">
+        <title>anhui</title>
+        </polygon>
+
+        <polygon id="shanghai" class="province"
+        points="1754,907 1725,906 1747,932 1769,930 1760,907">
+        <title>shanghai</title>
+        </polygon>
+
+        <polygon id="jiangsu" class="province"
+        points="1630,783 1606,802 1573,802 1559,812 1599,834 1630,872 1653,867 1637,888 1653,917 1690,930 1719,938 1739,933 1717,904 1757,900 1719,867 1716,841 1694,813 1668,800 1643,796">
+        <title>jiangsu</title>
+        </polygon>
+
+        <polygon id="shandong" class="province"
+        points="1745,677 1679,669 1663,683 1653,699 1619,698 1612,677 1587,676 1570,663 1555,682 1539,677 1513,714 1494,724 1511,750 1491,778 1489,806 1539,805 1558,791 1599,797 1634,780 1654,758 1700,724 1729,721">
+        <title>shandong</title>
+        </polygon>
+
+        <polygon id="shanxi" class="province"
+        points="1362,600 1352,623 1330,625 1322,663 1319,704 1319,786 1321,822 1347,822 1384,806 1413,802 1428,788 1426,753 1422,734 1434,724 1431,705 1425,683 1416,663 1426,647 1437,638 1423,607 1432,597 1425,582 1415,591 1394,594">
+        <title>shanxi</title>
+        </polygon>
+
+        <polygon id="hebei" class="province"
+        points="1546,489 1518,495 1501,514 1477,522 1464,536 1451,520 1426,539 1419,577 1429,577 1437,592 1429,608 1438,621 1438,639 1416,652 1420,672 1437,688 1435,710 1426,735 1450,750 1483,751 1498,748 1488,729 1501,720 1513,700 1527,684 1548,677 1554,656 1543,647 1527,647 1524,625 1510,622 1486,622 1480,606 1483,583 1498,570 1523,561 1537,573 1526,593 1526,609 1536,609 1537,590 1549,589 1559,599 1568,614 1580,624 1603,624 1614,621 1614,609 1622,576 1605,557 1596,535 1565,526 1562,504">
+        <title>heibei</title>
+        </polygon>
+
+        <polygon id="jilin" class="province"
+        points="1726,328 1695,326 1688,342 1663,341 1665,363 1671,391 1684,402 1698,395 1713,407 1717,430 1739,426 1757,440 1780,434 1798,453 1802,477 1818,494 1840,500 1887,500 1887,474 1910,474 1938,426 1970,426 1969,385 1934,369 1902,385 1859,360 1852,377 1837,372 1826,347 1812,344 1777,344 1731,347">
+        <title>jilin</title>
+        </polygon>
+
+        <polygon id="liaoning" class="province"
+        points="1618,486 1609,500 1609,527 1600,546 1630,565 1634,585 1659,562 1693,562 1688,603 1710,613 1742,587 1785,587 1807,559 1808,530 1807,490 1783,440 1761,449 1741,432 1726,452 1703,467 1671,477 1647,490">
+        <title>liaoning</title>
+        </polygon>
+
+        <polygon id="ningxia" class="province"
+        points="1176,648 1156,658 1144,706 1110,722 1130,732 1130,753 1132,783 1146,787 1154,801 1172,807 1182,785 1178,767 1170,759 1178,736 1199,730 1199,710 1190,687 1172,687">
+        <title>ningxia</title>
+        </polygon>
+        
+        <polygon id="beijing" class="province"
+        points="1534,574 1524,564 1508,566 1498,578 1482,600 1494,622 1510,618 1520,608 1526,596">
+        <title>beijing</title>
+        </polygon>
+
+        <polygon id="tianjin" class="province"
+        points="1554,592 1542,592 1542,610 1525,614 1525,639 1550,641 1558,620">
+        <title>tianjin</title>
+        </polygon>
+    </svg>
+
+    <!--province name shown on hover-->
+    <!--hover label starts hidden and it is shown when hovering over a province-->
+    <div id="hover-label" class="hidden"></div>   
+  </div>
+
+  <!--quiz modal-->
+  <div id="modal" class="modal modal-hidden"> <!--hidden state initially-->
+    <div class="modal-content">
+      <button class="close-btn" id="close-btn">&times;</button>
+      <div class="province-featured">
+        <img id="province-bg-img" class="province-bg-img" loading="lazy" alt="" />
+      </div>
+      <h2 id="province-name"></h2>
+      <p class="province-info-label">背景介紹</p>
+      <p id="province-info-text"></p>
+      <p class="quiz-label">測驗題目</p>
+      <p id="question-text"></p>
+      <div id="options-container"></div>
+      <p id="feedback" class="feedback hidden"></p> <!--hidden state initially-->
+    </div>
+  </div>
+
+  <!-- Dashboard  -->
+  <aside id="dashboard" class="dashboard-panel hidden">
+    <div class="dashboard-header">
+      <h3>回答統計</h3>
+      <button id="dashboard-close-btn" class="dashboard-close-btn" type="button">×</button>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">已回答題數</div>
+        <div class="stat-value" id="stat-total-answered">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">正確率</div>
+        <div class="stat-value" id="stat-correct-rate">0%</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">平均作答時間</div>
+        <div class="stat-value" id="stat-avg-time">0.0 秒</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">已探索省份</div>
+        <div class="stat-value" id="stat-explored-count">0</div>
+      </div>
+    </div>
+
+    <div class="charts-row">
+      <div class="chart-card">
+        <div class="chart-title">整體正確/錯誤比例</div>
+        <div id="pie-chart" class="pie-chart"></div>
+        <div class="pie-legend">
+          <span class="legend-item"><i class="legend-dot correct-dot"></i>正確</span>
+          <span class="legend-item"><i class="legend-dot wrong-dot"></i>錯誤</span>
+        </div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">錯誤率最高（前 3 名）</div>
+        <div id="bar-chart" class="bar-chart"></div>
+      </div>
+    </div>
+
+    <div class="ranking-section">
+      <div class="chart-title">各省正確率排名（由高到低）</div>
+      <div id="ranking-list" class="ranking-list"></div>
+    </div>
+
+    <div class="ranking-section">
+      <div class="chart-title">快速洞察</div>
+      <div id="insights" class="insights"></div>
+    </div>
+
+    <div class="dashboard-footer">
+      <button id="dashboard-reset-btn" class="reset-btn" type="button">重置所有統計</button>
+    </div>
+  </aside>
+
+  <!-- Collection Panel -->
+  <aside id="collection" class="collection-panel hidden">
+    <div class="collection-header">
+      <h3>我的卡片集</h3>
+      <button id="collection-close-btn" class="collection-close-btn" type="button">×</button>
+    </div>
+    <div class="collection-grid" id="collection-grid">
+      <!-- Dynamically filled with collected provinces -->
+    </div>
+  </aside>
+
+  <!-- Exploration progress -->
+  <div id="progress-wrap" class="progress-wrap">
+    <div class="progress-bar">
+      <div id="progress-fill" class="progress-fill" style="width:0%"></div>
+    </div>
+    <div id="progress-text" class="progress-text">已探索 0 / 31</div>
+  </div>
+
+  <!-- Quiz data -->
+  <script src="js/questions.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
